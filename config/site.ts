@@ -1,24 +1,29 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Next.js + NextUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  title: "Premium Used Cars | Your Trusted Dealer",
+  description:
+    "Find your perfect pre-owned vehicle at our trusted used car dealership. Wide selection, competitive prices, and excellent customer service.",
   navItems: [
     {
       label: "Home",
       href: "/",
     },
     {
-      label: "Docs",
-      href: "/docs",
+      label: "Inventory",
+      href: "/inventory",
     },
     {
-      label: "Pricing",
-      href: "/pricing",
+      label: "Private Sales",
+      href: "/private-sales",
     },
     {
-      label: "Blog",
-      href: "/blog",
+      label: "Wish List",
+      href: "/wish-list",
+    },
+    {
+      label: "Past Sales",
+      href: "/past-sales",
     },
     {
       label: "About",
@@ -64,6 +69,5 @@ export const siteConfig = {
     twitter: "https://twitter.com/getnextui",
     docs: "https://nextui.org",
     discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
   },
 };
