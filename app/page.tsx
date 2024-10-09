@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       {/* Background Image */}
-      <div className="absolute inset-0 pt-24">
-        <div className="relative w-full h-screen">
+      <div className="absolute inset-0 pt-28">
+        <div className="relative w-full h-5/6">
           <Image
             alt="Background" // className="object-cover w-full h-[250px] bg-cover bg-center bg-no-repeat mb-8 md:h-[350px]"
             className="object-cover object-center"
@@ -20,7 +20,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-black opacity-70" />
         </div>
       </div>
-      <div className="z-10 h-[40rem] flex px-4">
+      <div className="z-10 h-[15rem] flex px-4">
         <div className="text-3xl md:text-7xl font-normal mx-auto text-center text-neutral-600 dark:text-neutral-400">
           Buy
           <FlipWords words={words} />

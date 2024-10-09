@@ -9,7 +9,7 @@ export const Footer = () => {
         href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
         title="nextui.org homepage"
       >
-        <span className="text-default-600">Powered by</span>
+        <span className="text-default-600">Copyright © 2024 Ruiz Motors</span>
         <p className="text-primary">NextUI</p>
       </Link>
     </footer>

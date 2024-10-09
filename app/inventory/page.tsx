@@ -77,7 +77,7 @@ const InventoryPage = () => {
   );
 
   return (
-    <div className="container mx-auto px-4 py-8 flex flex-col gap-y-6">
+    <div className="container mx-auto px-4 py-8 flex flex-col gap-y-6 items-center">
       {/* <h1 className={title()}>Inventory</h1> */}
       <Input
         className="py-4"
@@ -89,7 +89,7 @@ const InventoryPage = () => {
       <div className="grid grid-cols-1 w-3/4 md:grid-cols-2 lg:w-full lg:grid-cols-4 gap-8">
         {filteredCars.map((car) => (
           <Card key={car.id}>
-            <CardBody className="p-0">
+            <CardBody className="p-0 relative">
               <Image
                 alt={car.name}
                 className="w-full h-48 object-cover rounded-md"
@@ -98,6 +98,15 @@ const InventoryPage = () => {
                 src={car.image}
                 width={300}
               />
+              {/* <div className="absolute top-0 right-0 flex flex-row items-center space-x-4 z-10">
+                <Image
+                  alt="Avatar"
+                  className="h-10 w-10 rounded-full border-2 object-cover"
+                  height="100"
+                  src="/manu.png"
+                  width="100"
+                />
+              </div> */}
             </CardBody>
             <CardFooter className="flex flex-col items-start p-5">
               <h3 className="text-lg font-medium">{car.name}</h3>
