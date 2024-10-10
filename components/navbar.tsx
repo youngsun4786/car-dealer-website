@@ -44,13 +44,13 @@ export const Navbar = () => {
 
   return (
     <div className="pt-4">
-      <div className="flex z-40 w-full h-auto items-center px-8 justify-between data-[menu-open=true]:border-none sticky top-0 inset-x-0 backdrop-blur-lg data-[menu-open=true]:backdrop-blur-xl backdrop-saturate-150 bg-background/70 text-sm">
+      <div className="flex z-40 w-full h-auto items-center px-4 md:px-8 justify-between data-[menu-open=true]:border-none sticky top-0 inset-x-0 backdrop-blur-lg data-[menu-open=true]:backdrop-blur-xl backdrop-saturate-150 bg-background/70 text-xs md:text-sm">
         <div className="flex items-center gap-2 text-default-500">
           <PinIcon className="text-default-500" />
           <Link
             isExternal
             aria-label="company"
-            className=" text-default-500 text-sm relative after:bg-default-500 after:absolute after:h-0.5 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"
+            className=" text-default-500 text-xs md:text-sm relative after:bg-default-500 after:absolute after:h-0.5 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"
             href={siteConfig.links.work}
           >
             715 41 Ave NE, Calgary, AB T2E 3P8
