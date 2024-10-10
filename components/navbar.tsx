@@ -1,15 +1,5 @@
 "use client";
 
-import {
-  CellIcon,
-  FacebookIcon,
-  Logo,
-  PinIcon,
-  SearchIcon,
-  TwitterIcon,
-} from "@/components/icons";
-import { ThemeSwitch } from "@/components/theme-switch";
-import { siteConfig } from "@/config/site";
 import { Input } from "@nextui-org/input";
 import { Link } from "@nextui-org/link";
 import {
@@ -24,10 +14,23 @@ import {
 import { link as linkStyles } from "@nextui-org/theme";
 import clsx from "clsx";
 import NextLink from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
+
+import {
+  CellIcon,
+  FacebookIcon,
+  Logo,
+  PinIcon,
+  SearchIcon,
+  TwitterIcon,
+} from "@/components/icons";
+import { ThemeSwitch } from "@/components/theme-switch";
+import { siteConfig } from "@/config/site";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const pathname = usePathname();
 
   const searchInput = (
     <Input
@@ -65,7 +68,6 @@ export const Navbar = () => {
         </div>
       </div>
       <NextUINavbar
-        // isBordered
         isMenuOpen={isMenuOpen}
         maxWidth="full"
         position="sticky"
@@ -133,23 +135,19 @@ export const Navbar = () => {
             <FacebookIcon className="text-default-500" />
           </Link>
           <ThemeSwitch />
-          <NavbarMenuToggle
-          />
+          <NavbarMenuToggle />
         </NavbarContent>
 
         <NavbarMenu className="py-10">
           {searchInput}
           <div className="mx-4 mt-2 flex flex-col gap-2">
             {siteConfig.navItems.map((item, index) => (
-              <NavbarMenuItem key={`${item}-${index}`}>
+              <NavbarMenuItem
+                key={`${item}-${index}`}
+                isActive={pathname === item.href}
+              >
                 <Link
-                  color={
-                    index === 2
-                      ? "primary"
-                      : index === siteConfig.navMenuItems.length - 1
-                        ? "danger"
-                        : "foreground"
-                  }
+                  color={pathname === item.href ? "primary" : "foreground"}
                   href={item.href}
                   size="lg"
                   onPress={() => setIsMenuOpen(!isMenuOpen)}
