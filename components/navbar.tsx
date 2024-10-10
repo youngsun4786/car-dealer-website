@@ -1,3 +1,15 @@
+"use client";
+
+import {
+  CellIcon,
+  FacebookIcon,
+  Logo,
+  PinIcon,
+  SearchIcon,
+  TwitterIcon,
+} from "@/components/icons";
+import { ThemeSwitch } from "@/components/theme-switch";
+import { siteConfig } from "@/config/site";
 import { Input } from "@nextui-org/input";
 import { Link } from "@nextui-org/link";
 import {
@@ -12,20 +24,11 @@ import {
 import { link as linkStyles } from "@nextui-org/theme";
 import clsx from "clsx";
 import NextLink from "next/link";
-
-import {
-  CellIcon,
-  FacebookIcon,
-  GithubIcon,
-  Logo,
-  PinIcon,
-  SearchIcon,
-  TwitterIcon,
-} from "@/components/icons";
-import { ThemeSwitch } from "@/components/theme-switch";
-import { siteConfig } from "@/config/site";
+import { useState } from "react";
 
 export const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
   const searchInput = (
     <Input
       aria-label="Search"
@@ -61,7 +64,13 @@ export const Navbar = () => {
           <span className="text-default-500"> (111)-111-1111</span>
         </div>
       </div>
-      <NextUINavbar maxWidth="full" position="sticky">
+      <NextUINavbar
+        // isBordered
+        isMenuOpen={isMenuOpen}
+        maxWidth="full"
+        position="sticky"
+        onMenuOpenChange={setIsMenuOpen}
+      >
         {/* Moved the CellIcon and phone number directly inside NextUINavbar */}
         <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
           <NavbarBrand as="li" className="gap-3 max-w-fit">
@@ -116,17 +125,22 @@ export const Navbar = () => {
         </NavbarContent>
 
         <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-          <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-            <GithubIcon className="text-default-500" />
+          <Link
+            isExternal
+            aria-label="Facebook"
+            href={siteConfig.links.twitter}
+          >
+            <FacebookIcon className="text-default-500" />
           </Link>
           <ThemeSwitch />
-          <NavbarMenuToggle />
+          <NavbarMenuToggle
+          />
         </NavbarContent>
 
-        <NavbarMenu>
+        <NavbarMenu className="py-10">
           {searchInput}
           <div className="mx-4 mt-2 flex flex-col gap-2">
-            {siteConfig.navMenuItems.map((item, index) => (
+            {siteConfig.navItems.map((item, index) => (
               <NavbarMenuItem key={`${item}-${index}`}>
                 <Link
                   color={
@@ -136,8 +150,9 @@ export const Navbar = () => {
                         ? "danger"
                         : "foreground"
                   }
-                  href="#"
+                  href={item.href}
                   size="lg"
+                  onPress={() => setIsMenuOpen(!isMenuOpen)}
                 >
                   {item.label}
                 </Link>

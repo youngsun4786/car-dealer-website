@@ -6,7 +6,7 @@ import { title } from "@/components/primitives";
 export default function AboutPage() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className={clsx(title())}>About Premium Used Cars</h1>
+      <h1 className={clsx(title())}>Xi He</h1>
       <div className="flex flex-col md:flex-row items-center mb-8 pt-6">
         <div className="md:w-1/2 md:pr-8 mb-4 md:mb-0">
           <Image
