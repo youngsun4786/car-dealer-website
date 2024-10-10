@@ -1,6 +1,7 @@
-"use client"
+"use client";
 
-import { FlipWords } from "@/app/flipwords";
+import { FlipWords } from "@/components/flipwords";
+import ContactButton from "@/components/contact-button";
 import Image from "next/image";
 
 export default function Home() {
@@ -10,7 +11,6 @@ export default function Home() {
     const opacity = document.getElementById("background-opacity");
 
     opacity!.classList.remove("hidden");
-
   };
 
   return (
@@ -34,10 +34,13 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="z-10 h-[15rem] flex px-4">
+      <div className="z-10 h-[20rem] flex flex-col px-4 items-center justify-between">
         <div className="text-3xl md:text-7xl font-normal mx-auto text-center text-neutral-600 dark:text-neutral-400">
           <FlipWords words={words} />
           <br /> cars for customers
+        </div>
+        <div>
+          <ContactButton />
         </div>
       </div>
     </section>
